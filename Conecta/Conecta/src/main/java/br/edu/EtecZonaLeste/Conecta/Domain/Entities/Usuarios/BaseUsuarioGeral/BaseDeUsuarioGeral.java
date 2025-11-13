@@ -1,8 +1,8 @@
-package br.edu.EtecZonaLeste.Conecta.Domain.Entities.Usuarios.BaseUsuario;
+package br.edu.EtecZonaLeste.Conecta.Domain.Entities.Usuarios.BaseUsuarioGeral;
 
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.*;
 
-public abstract class BaseDeUsuario {
+public abstract class BaseDeUsuarioGeral {
 
     protected final Nome nome;
     protected final Cpf cpf;
@@ -15,7 +15,7 @@ public abstract class BaseDeUsuario {
     protected final TipoUsuario tipoUsuario;
     protected Atividade atividade;
 
-    public BaseDeUsuario(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade) {
+    public BaseDeUsuarioGeral(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade) {
         this.nome = nome;
         this.cpf = cpf;
         this.tipoUsuario = tipoUsuario;
