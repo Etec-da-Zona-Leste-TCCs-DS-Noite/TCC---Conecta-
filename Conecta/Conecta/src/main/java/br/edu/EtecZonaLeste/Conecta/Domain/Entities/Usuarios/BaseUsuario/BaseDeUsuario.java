@@ -1,5 +1,7 @@
 package br.edu.EtecZonaLeste.Conecta.Domain.Entities.Usuarios.BaseUsuario;
 
+import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.*;
+
 public abstract class BaseDeUsuario {
 
     protected final Nome nome;
@@ -7,21 +9,21 @@ public abstract class BaseDeUsuario {
     protected Email email;
     protected final DataNascimento dataNasc;
     protected Endereco endereco;
-    protected Telefone telefone;
-    protected ValidaEmail validaEmail;
+    protected Celular celular;
+    protected EmailValidacao emailValidacao;
     protected AlteraSenha alteraSenha;
     protected final TipoUsuario tipoUsuario;
     protected Atividade atividade;
 
-    public BaseDeUsuario(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Telefone telefone, ValidaEmail validaEmail, AlteraSenha alteraSenha, Atividade atividade) {
+    public BaseDeUsuario(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade) {
         this.nome = nome;
         this.cpf = cpf;
         this.tipoUsuario = tipoUsuario;
         this.dataNasc = dataNasc;
         this.email = email;
         this.endereco = endereco;
-        this.telefone = telefone;
-        this.validaEmail = validaEmail;
+        this.celular = celular;
+        this.emailValidacao = emailValidacao;
         this.alteraSenha = alteraSenha;
         this.atividade = atividade;
     }
@@ -50,12 +52,12 @@ public abstract class BaseDeUsuario {
         return endereco;
     }
 
-    public Telefone getTelefone() {
-        return telefone;
+    public Celular getTelefone() {
+        return celular;
     }
 
-    public ValidaEmail getValidaEmail() {
-        return validaEmail;
+    public EmailValidacao getEmailValidacao() {
+        return emailValidacao;
     }
 
     public AlteraSenha getAlteraSenha() {
