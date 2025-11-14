@@ -7,12 +7,12 @@ import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.*;
 
 public class FuncionarioGeral extends BaseDeUsuarioGeral {
 
-    private final Rf rf;
-    private Cargo cargo;
+    protected final Rf rf;
+    protected Cargo cargo;
 
-    public FuncionarioGeral(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade, Rf rf, Cargo cargo) {
-        super(nome, cpf, tipoUsuario, dataNasc, email, endereco, celular, emailValidacao, alteraSenha, atividade);
+    public FuncionarioGeral(TextoValido nome, Cpf cpf, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade, Rf rf) {
+        super(nome, cpf, dataNasc, email, endereco, celular, emailValidacao, alteraSenha, atividade);
         this.rf = rf;
-        this.cargo = cargo;
+        this.tipoUsuario = TipoUsuario.FUNCIONARIO;
     }
 }

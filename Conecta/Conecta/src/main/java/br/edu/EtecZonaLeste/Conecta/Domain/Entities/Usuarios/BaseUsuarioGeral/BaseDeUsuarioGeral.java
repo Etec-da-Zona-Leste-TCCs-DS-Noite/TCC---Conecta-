@@ -4,7 +4,7 @@ import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.*;
 
 public abstract class BaseDeUsuarioGeral {
 
-    protected final Nome nome;
+    protected final TextoValido nome;
     protected final Cpf cpf;
     protected Email email;
     protected final DataNascimento dataNasc;
@@ -12,13 +12,12 @@ public abstract class BaseDeUsuarioGeral {
     protected Celular celular;
     protected EmailValidacao emailValidacao;
     protected AlteraSenha alteraSenha;
-    protected final TipoUsuario tipoUsuario;
+    protected TipoUsuario tipoUsuario;
     protected Atividade atividade;
 
-    public BaseDeUsuarioGeral(Nome nome, Cpf cpf, TipoUsuario tipoUsuario, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade) {
+    public BaseDeUsuarioGeral(TextoValido nome, Cpf cpf, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, EmailValidacao emailValidacao, AlteraSenha alteraSenha, Atividade atividade) {
         this.nome = nome;
         this.cpf = cpf;
-        this.tipoUsuario = tipoUsuario;
         this.dataNasc = dataNasc;
         this.email = email;
         this.endereco = endereco;
@@ -32,7 +31,7 @@ public abstract class BaseDeUsuarioGeral {
     public void RefefinirSenha(){}
     public String GetAlterador(){}
 
-    public Nome getNome() {
+    public TextoValido getNome() {
         return nome;
     }
 

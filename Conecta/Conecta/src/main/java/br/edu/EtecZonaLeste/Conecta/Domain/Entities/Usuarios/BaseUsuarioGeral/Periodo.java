@@ -1,7 +1,9 @@
 package br.edu.EtecZonaLeste.Conecta.Domain.Entities.Usuarios.BaseUsuarioGeral;
 
-public enum TipoUsuario {
+public enum Periodo {
 
-    FUNCIONARIO,
-    ALUNO
+    MATUTINO,
+    VESPERTINO,
+    NOTURNO,
+    INTEGRAL
 }
