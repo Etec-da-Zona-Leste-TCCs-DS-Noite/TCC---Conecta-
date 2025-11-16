@@ -1,6 +1,6 @@
 package br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects;
 
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.Usuarios.Aluno.Aluno;
+import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Aluno.Aluno;
 
 import java.util.List;
 
