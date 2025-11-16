@@ -5,6 +5,7 @@ import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ResponsavelMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.RetornoResponsaveisPorFilhosPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 
@@ -29,10 +30,8 @@ public class RetornoResponsaveisPorFilhosUseCase implements RetornoResponsaveisP
             alunoRepository.RetornoAlunoPorRm(rm)
                     .orElseThrow(() -> new DadoInvalidoException("Nenhum aluno encontrado com este rm" + rm));
         }
-        var responsaveis = repository.RetornoResponsaveisPorFilhos(rmsFilhos);
-        return responsaveis
-                .stream()
-                .map(mapper::toDTORetorno)
-                .toList();
+        List<Responsavel> retornoBruto = repository.RetornoResponsaveisPorFilhos(rmsFilhos);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraResponsavelAtivo(retornoBruto);
     }
 }

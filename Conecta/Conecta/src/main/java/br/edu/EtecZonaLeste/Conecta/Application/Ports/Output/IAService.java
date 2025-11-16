@@ -1,4 +1,4 @@
-package br.edu.EtecZonaLeste.Conecta.Domain.Services.IAService;
+package br.edu.EtecZonaLeste.Conecta.Application.Ports.Output;
 
 public interface IAService {
 

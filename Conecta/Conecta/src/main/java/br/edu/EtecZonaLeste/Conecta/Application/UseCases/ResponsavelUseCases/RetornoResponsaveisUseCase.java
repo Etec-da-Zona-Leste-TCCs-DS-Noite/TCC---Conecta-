@@ -21,11 +21,8 @@ public class RetornoResponsaveisUseCase implements RetornoResponsaveisPort {
 
     @Override
     public List<DTORetornoResponsavel> RetornoResponsaveis(Integer pages, Integer size) {
-        List<Responsavel> responsaveis = repository.RetornoResponsaveis(pages, size);
-        if (responsaveis.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado.");
-        return responsaveis
-                .stream()
-                .map(mapper::toDTORetorno)
-                .toList();
+        List<Responsavel> retornoBruto = repository.RetornoResponsaveis(pages, size);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraResponsavelAtivo(retornoBruto);
     }
 }

@@ -22,11 +22,8 @@ public class RetornoResponsaveisPorNomeUseCase implements RetornoResponsaveisPor
 
     @Override
     public List<DTORetornoResponsavel> RetornoResponsaveisPorNome(Integer pages, Integer size, TextoValido nome) {
-        List<Responsavel> responsaveis = repository.RetornoResponsaveisPorNome(pages, size, nome);
-        if (responsaveis.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado.");
-        return responsaveis
-                .stream()
-                .map(mapper::toDTORetorno)
-                .toList();
+        List<Responsavel> retornoBruto = repository.RetornoResponsaveisPorNome(pages, size, nome);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraResponsavelAtivo(retornoBruto);
     }
 }

@@ -4,7 +4,6 @@ import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTORetornoSecr
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.SecretariaMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.RetornoSecretariaPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Secretaria.Secretaria;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 
@@ -22,11 +21,8 @@ public class RetornoSecretariaUseCase implements RetornoSecretariaPort {
 
     @Override
     public List<DTORetornoSecretaria> RetornoSecretaria(Integer pages, Integer size) {
-        List<Secretaria> secretaria = repository.RetornoSecretaria(pages, size);
-        if (secretaria.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado.");
-        return secretaria
-                .stream()
-                .map(mapper::toDTORetornoSecretaria)
-                .toList();
+        List<Secretaria> retornoBruto = repository.RetornoSecretaria(pages, size);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraSecretariaAtivo(retornoBruto);
     }
 }

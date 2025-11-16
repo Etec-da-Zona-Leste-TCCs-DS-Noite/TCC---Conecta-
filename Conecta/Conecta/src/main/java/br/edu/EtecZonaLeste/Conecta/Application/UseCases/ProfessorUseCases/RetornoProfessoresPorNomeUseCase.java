@@ -22,11 +22,8 @@ public class RetornoProfessoresPorNomeUseCase implements RetornoProfessoresPorNo
 
     @Override
     public List<DTORetornoProfessor> RetornoProfessoresPorNome(Integer pages, Integer size, TextoValido nome) {
-        List<Professor> professores = repository.RetornoProfessoresPorNome(pages, size, nome);
-        if (professores.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado.");
-        return professores
-                .stream()
-                .map(mapper::toDTORetorno)
-                .toList();
+        List<Professor> retornoBruto = repository.RetornoProfessoresPorNome(pages, size, nome);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraProfessorAtivo(retornoBruto);
     }
 }

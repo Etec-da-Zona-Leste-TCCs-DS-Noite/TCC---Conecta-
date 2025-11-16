@@ -5,6 +5,7 @@ import br.edu.EtecZonaLeste.Conecta.Application.Mappers.AlunoMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.AlunoPorts.RetornoAlunosPorTurmaPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Aluno.Aluno;
+import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
 import java.util.List;
@@ -25,9 +26,7 @@ public class RetornoAlunosPorTurmaUseCase implements RetornoAlunosPorTurmaPort {
     @Override
     public List<DTORetornoAluno> RetornoAlunosPorTurma(TextoValido nomeTurma) {
         List<Aluno> retornoBruto = repository.RetornoAlunosPorTurma(nomeTurma);
-        return retornoBruto
-                .stream()
-                .map(mapper :: toDTO)
-                .collect(Collectors.toList());
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraAlunoAtivo(retornoBruto);
     }
 }

@@ -10,7 +10,9 @@ import java.util.Optional;
 public interface SecretariaRepository {
 
     void SalvarSecretaria(Secretaria secretaria);
-    List<Secretaria> RetornoSecretaria(Integer pages, Integer size);
-    Optional<Secretaria> RetornoSecretariaPorNome(TextoValido nome);
     Optional<Secretaria> RetornoSecretariaPorCpf(Cpf cpf);
+    List<Secretaria> RetornoSecretariaPorNome(Integer pages, Integer size, TextoValido nome);
+    List<Secretaria> RetornoSecretaria(Integer pages, Integer size);
+    List<Secretaria> RetornoSecretariaPorNomeInativos(TextoValido nome);
+    List<Secretaria> RetornoSecretariaInativos(Integer pages, Integer size);
 }

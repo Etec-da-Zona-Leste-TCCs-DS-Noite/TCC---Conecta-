@@ -1,9 +1,7 @@
 package br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoResponsavel;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
-import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
 import java.util.LinkedHashSet;
 import java.util.List;

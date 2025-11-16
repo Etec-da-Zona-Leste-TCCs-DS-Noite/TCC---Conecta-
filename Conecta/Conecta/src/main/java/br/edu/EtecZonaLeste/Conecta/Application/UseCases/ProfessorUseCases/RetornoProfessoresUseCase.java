@@ -21,11 +21,8 @@ public class RetornoProfessoresUseCase implements RetornoProfessoresPort {
 
     @Override
     public List<DTORetornoProfessor> listarProfessores(Integer pages, Integer size) {
-        List<Professor> professores = repository.RetornoProfessores(pages, size);
-        if (professores.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado.");
-        return professores
-                .stream()
-                .map(mapper::toDTORetorno)
-                .toList();
+        List<Professor> retornoBruto = repository.RetornoProfessores(pages, size);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraProfessorAtivo(retornoBruto);
     }
 }

@@ -5,6 +5,7 @@ import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ResponsavelMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.SalvarResponsavelPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Services.EnvioValidacaoEmailService;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 
@@ -15,11 +16,13 @@ public class SalvarResponsavelUseCase implements SalvarResponsavelPort {
 
     private final ResponsavelRepository repository;
     private final AlunoRepository alunoRepository;
+    private final EnvioValidacaoEmailService service;
     private final ResponsavelMapper mapper;
 
-    public SalvarResponsavelUseCase(ResponsavelRepository repository, AlunoRepository alunoRepository, ResponsavelMapper mapper) {
+    public SalvarResponsavelUseCase(ResponsavelRepository repository, AlunoRepository alunoRepository, EnvioValidacaoEmailService service, ResponsavelMapper mapper) {
         this.repository = repository;
         this.alunoRepository = alunoRepository;
+        this.service = service;
         this.mapper = mapper;
     }
 
@@ -40,7 +43,9 @@ public class SalvarResponsavelUseCase implements SalvarResponsavelPort {
                 .orElse(null);
         if (retorno == null) {
             ValidaVinculacaoAluno(dto.rmsFilhos());
-            repository.SalvarResponsavel(mapper.toRegister(dto));
+            var responsavel = mapper.toRegister(dto);
+            service.EnviarPropostaDeValidacaoEmail(responsavel.getEmailValidacao().token(), responsavel.getEmail());
+            repository.SalvarResponsavel(responsavel);
         }
         else if (retorno != null && !dto.rmsFilhos().equals(retorno.getRmsFilhos())){
             ValidaVinculacaoAluno(dto.rmsFilhos());

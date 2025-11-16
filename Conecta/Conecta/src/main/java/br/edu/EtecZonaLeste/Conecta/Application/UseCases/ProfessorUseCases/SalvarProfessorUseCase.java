@@ -4,17 +4,19 @@ import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTOCadastroProf
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ProfessorMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ProfessorPorts.SalvarProfessorPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepository;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
+import br.edu.EtecZonaLeste.Conecta.Application.Services.EnvioValidacaoEmailService;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 
 public class SalvarProfessorUseCase implements SalvarProfessorPort {
 
     private final ProfessorRepository repository;
     private final ProfessorMapper mapper;
+    private final EnvioValidacaoEmailService service;
 
-    public SalvarProfessorUseCase(ProfessorRepository repository, ProfessorMapper mapper) {
+    public SalvarProfessorUseCase(ProfessorRepository repository, ProfessorMapper mapper, EnvioValidacaoEmailService service) {
         this.repository = repository;
         this.mapper = mapper;
+        this.service = service;
     }
 
     @Override
@@ -24,7 +26,8 @@ public class SalvarProfessorUseCase implements SalvarProfessorPort {
         if (retorno != null) {
             throw new DadoInvalidoException("Já existe um professor cadastrado com esse CPF.");
         }
-        Professor professorParaSalvar = mapper.toRegister(dto);
+        var professorParaSalvar = mapper.toRegister(dto);
+        service.EnviarPropostaDeValidacaoEmail(professorParaSalvar.getEmailValidacao().token(), professorParaSalvar.getEmail());
         repository.SalvarProfessor(professorParaSalvar);
     }
 }

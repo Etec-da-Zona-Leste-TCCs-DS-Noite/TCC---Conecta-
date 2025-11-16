@@ -4,7 +4,6 @@ import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoRes
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ResponsavelMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.RetornoResponsavelPorCpfPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 

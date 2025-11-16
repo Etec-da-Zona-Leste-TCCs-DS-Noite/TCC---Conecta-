@@ -4,9 +4,11 @@ import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTORetornoSecr
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.SecretariaMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.RetornoSecretariaPorNomePort;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Secretaria.Secretaria;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
+import java.util.List;
 import java.util.Optional;
 
 public class RetornoSecretariaPorNomeUseCase implements RetornoSecretariaPorNomePort {
@@ -20,10 +22,9 @@ public class RetornoSecretariaPorNomeUseCase implements RetornoSecretariaPorNome
     }
 
     @Override
-    public Optional<DTORetornoSecretaria> RetornoSecretariaPorNome(TextoValido nome) {
-        var retorno = repository.RetornoSecretariaPorNome(nome)
-                .map(mapper::toDTORetornoSecretaria);
-        if (retorno.isEmpty()) throw new DadoInvalidoException("Nenhum professor encontrado com o CPF informado.");
-        return retorno;
+    public List<DTORetornoSecretaria> RetornoSecretariaPorNome(Integer pages, Integer size, TextoValido nome) {
+        List<Secretaria> retornoBruto = repository.RetornoSecretariaPorNome(pages, size, nome);
+        if (retornoBruto.isEmpty()) throw new DadoInvalidoException();
+        return mapper.FiltraSecretariaAtivo(retornoBruto);
     }
 }

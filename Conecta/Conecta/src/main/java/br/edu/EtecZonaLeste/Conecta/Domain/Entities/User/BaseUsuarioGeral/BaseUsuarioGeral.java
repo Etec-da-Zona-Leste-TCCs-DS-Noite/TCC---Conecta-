@@ -8,7 +8,7 @@ public abstract class BaseUsuarioGeral {
     protected final TextoValido nome;
     protected final Cpf cpf;
     protected Email email;
-    protected Senha senha;
+    protected Senha senhaBruta;
     protected final DataNascimento dataNasc;
     protected Endereco endereco;
     protected Celular celular;
@@ -17,31 +17,35 @@ public abstract class BaseUsuarioGeral {
     protected TipoUsuario tipoUsuario;
     protected Atividade atividade;
 
-    public BaseUsuarioGeral(TextoValido nome, Cpf cpf, DataNascimento dataNasc, Email email, Endereco endereco, Celular celular, Atividade atividade) {
+    public BaseUsuarioGeral(TextoValido nome, Cpf cpf, DataNascimento dataNasc, Email email, Senha senhaBruta, Endereco endereco, Celular celular) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNasc = dataNasc;
         this.email = email;
+        this.senhaBruta = senhaBruta;
         this.endereco = endereco;
         this.celular = celular;
-        this.atividade = atividade;
+        this.atividade = Atividade.INATIVO;
         this.emailValidacao = EmailValidacao.Iniciar();
         this.alteraSenha = null;
+    }
+
+    public void ValidarEmail(String tokenProposto){
+        if (tokenProposto == null) throw new FalhaValidacaoException();
+        this.emailValidacao = this.emailValidacao.Confirmar(tokenProposto);
+        this.atividade = Atividade.ATIVO;
     }
 
     public void IniciarAlteracaoSenha(){
         if (this.emailValidacao.validado()) this.alteraSenha = AlteraSenha.Iniciar();
         else throw new FalhaValidacaoException("Necessário validar email primeiro");
     }
-    public void RefefinirSenha(String tokenProposto, Senha novaSenha){
+
+    public void RedefinirSenha(String tokenProposto, Senha novaSenha){
         if (tokenProposto == null) throw new FalhaValidacaoException();
             this.alteraSenha.Validar(tokenProposto);
-            this.senha = novaSenha;
+            this.senhaBruta = novaSenha;
             this.alteraSenha = this.alteraSenha.Zerar();
-    }
-    public String GetAlterador(){
-        if (this.alteraSenha.token() != null) return this.alteraSenha.token();
-        else return null;
     }
 
     public void DeletarUsuario() {

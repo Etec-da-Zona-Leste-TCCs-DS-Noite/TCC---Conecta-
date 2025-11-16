@@ -1,9 +1,12 @@
 package br.edu.EtecZonaLeste.Conecta.Application.Mappers;
 
+import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTOCadastroResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Atividade;
+import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
@@ -13,9 +16,11 @@ import java.util.List;
 public class ResponsavelMapper {
 
     private final AlunoRepository alunoRepository;
+    private final CepService service;
 
-    public ResponsavelMapper(AlunoRepository alunoRepository) {
+    public ResponsavelMapper(AlunoRepository alunoRepository, CepService service) {
         this.alunoRepository = alunoRepository;
+        this.service = service;
     }
 
     public Responsavel toRegister(DTOCadastroResponsavel dto) {
@@ -25,7 +30,7 @@ public class ResponsavelMapper {
                 dto.cpf(),
                 dto.dataNasc(),
                 dto.email(),
-                dto.endereco(),
+                service.InsereEndereco(dto.endereco().cep(), dto.endereco().numeroEndereco()),
                 dto.celular(),
                 Atividade.ATIVO,
                 dto.rmsFilhos()
@@ -51,5 +56,27 @@ public class ResponsavelMapper {
                 responsavel.getRmsFilhos(),
                 nomesFilhos
         );
+    }
+    public List<DTORetornoResponsavel> FiltraResponsavelAtivo(List<Responsavel> responsaveis){
+        List<DTORetornoResponsavel> retorno = new ArrayList<>();
+        for (Responsavel responsavel : responsaveis) {
+            if (responsavel.getAtividade() == Atividade.ATIVO){
+                retorno.add(
+                        toDTORetorno(responsavel)
+                );
+            }
+        }
+        return retorno;
+    }
+    public List<DTORetornoResponsavel>FiltraResponsavelInativo(List<Responsavel> responsaveis){
+        List<DTORetornoResponsavel> retorno = new ArrayList<>();
+        for (Responsavel responsavel : responsaveis) {
+            if (responsavel.getAtividade() == Atividade.INATIVO){
+                retorno.add(
+                        toDTORetorno(responsavel)
+                );
+            }
+        }
+        return retorno;
     }
 }

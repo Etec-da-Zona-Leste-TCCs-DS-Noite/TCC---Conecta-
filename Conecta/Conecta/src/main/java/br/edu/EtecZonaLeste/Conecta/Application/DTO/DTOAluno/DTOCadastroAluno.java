@@ -1,5 +1,6 @@
 package br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOAluno;
 
+import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOEndereco.DTOEndereco;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Periodo;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.*;
 
@@ -11,7 +12,7 @@ public record DTOCadastroAluno(
         Cpf cpf,
         DataNascimento dataNasc,
         Email email,
-        Endereco endereco,
+        DTOEndereco endereco,
         Celular celular,
         LinkedHashSet<Curso> cursos,
         Periodo periodo
