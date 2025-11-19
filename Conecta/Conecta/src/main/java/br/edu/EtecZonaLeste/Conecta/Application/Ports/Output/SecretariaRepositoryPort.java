@@ -7,12 +7,10 @@ import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 import java.util.List;
 import java.util.Optional;
 
-public interface SecretariaRepository {
+public interface SecretariaRepositoryPort {
 
     void SalvarSecretaria(Secretaria secretaria);
     Optional<Secretaria> RetornoSecretariaPorCpf(Cpf cpf);
     List<Secretaria> RetornoSecretariaPorNome(Integer pages, Integer size, TextoValido nome);
     List<Secretaria> RetornoSecretaria(Integer pages, Integer size);
-    List<Secretaria> RetornoSecretariaPorNomeInativos(TextoValido nome);
-    List<Secretaria> RetornoSecretariaInativos(Integer pages, Integer size);
 }

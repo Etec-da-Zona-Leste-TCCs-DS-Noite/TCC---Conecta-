@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 
-public interface ResponsavelRepository {
+public interface ResponsavelRepositoryPort {
 
     void SalvarResponsavel(Responsavel responsavel);
     Optional<Responsavel> RetornoResponsavelPorCpf(Cpf cpf);

@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.RedefineSenhaSecretariaPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Senha;
 
 public class RedefineSenhaSecretariaUseCase implements RedefineSenhaSecretariaPort {
 
-    private final SecretariaRepository repository;
+    private final SecretariaRepositoryPort repository;
 
-    public RedefineSenhaSecretariaUseCase(SecretariaRepository repository) {
+    public RedefineSenhaSecretariaUseCase(SecretariaRepositoryPort repository) {
         this.repository = repository;
     }
 

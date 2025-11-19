@@ -2,16 +2,16 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.SecretariaMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.DeletarSecretariaPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class DeletarSecretariaUseCase implements DeletarSecretariaPort {
 
-    private final SecretariaRepository repository;
+    private final SecretariaRepositoryPort repository;
     private final SecretariaMapper mapper;
 
-    public DeletarSecretariaUseCase(SecretariaRepository repository, SecretariaMapper mapper) {
+    public DeletarSecretariaUseCase(SecretariaRepositoryPort repository, SecretariaMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }

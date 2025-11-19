@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.CanonizarSecretariaPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Secretaria.Secretaria;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.FalhaValidacaoException;
 
 public class CanonizarSecretariaUseCase implements CanonizarSecretariaPort {
 
-    private final SecretariaRepository repository;
+    private final SecretariaRepositoryPort repository;
 
-    public CanonizarSecretariaUseCase(SecretariaRepository repository) {
+    public CanonizarSecretariaUseCase(SecretariaRepositoryPort repository) {
         this.repository = repository;
     }
 

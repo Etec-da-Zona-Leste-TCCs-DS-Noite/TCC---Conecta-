@@ -2,7 +2,7 @@ package br.edu.EtecZonaLeste.Conecta.Application.Mappers;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTORetornoProfessor;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTOCadastroProfessor;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Atividade;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 
@@ -11,9 +11,9 @@ import java.util.List;
 
 public class ProfessorMapper {
 
-    private final CepService service;
+    private final CepServicePort service;
 
-    public ProfessorMapper(CepService service) {
+    public ProfessorMapper(CepServicePort service) {
         this.service = service;
     }
 

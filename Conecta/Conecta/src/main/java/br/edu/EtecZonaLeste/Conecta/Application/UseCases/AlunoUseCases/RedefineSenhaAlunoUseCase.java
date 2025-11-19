@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.AlunoUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.AlunoPorts.RedefineSenhaAlunoPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Senha;
 
 public class RedefineSenhaAlunoUseCase implements RedefineSenhaAlunoPort {
 
-    private final AlunoRepository repository;
+    private final AlunoRepositoryPort repository;
 
-    public RedefineSenhaAlunoUseCase(AlunoRepository repository) {
+    public RedefineSenhaAlunoUseCase(AlunoRepositoryPort repository) {
         this.repository = repository;
     }
 

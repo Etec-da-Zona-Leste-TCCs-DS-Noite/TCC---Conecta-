@@ -2,16 +2,16 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.AlunoUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOAluno.DTOAtualizacaoAluno;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.AlunoPorts.AtualizarAlunoPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepositoryPort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 
 public class AtualizarAlunoUseCase implements AtualizarAlunoPort {
 
-    private final AlunoRepository repository;
-    private final CepService service;
+    private final AlunoRepositoryPort repository;
+    private final CepServicePort service;
 
-    public AtualizarAlunoUseCase(AlunoRepository repository, CepService service) {
+    public AtualizarAlunoUseCase(AlunoRepositoryPort repository, CepServicePort service) {
         this.repository = repository;
         this.service = service;
     }

@@ -2,17 +2,17 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTOAtualizacaoSecretaria;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.AtualizarSecretariaPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class AtualizarSecretariaUseCase implements AtualizarSecretariaPort {
 
-    private final SecretariaRepository repository;
-    private final CepService service;
+    private final SecretariaRepositoryPort repository;
+    private final CepServicePort service;
 
-    public AtualizarSecretariaUseCase(SecretariaRepository repository, CepService service) {
+    public AtualizarSecretariaUseCase(SecretariaRepositoryPort repository, CepServicePort service) {
         this.repository = repository;
         this.service = service;
     }

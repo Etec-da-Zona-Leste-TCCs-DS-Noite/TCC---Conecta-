@@ -3,20 +3,19 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTORetornoSecretaria;
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.SecretariaMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.RetornoSecretariaPorNomePort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Secretaria.Secretaria;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
 import java.util.List;
-import java.util.Optional;
 
 public class RetornoSecretariaPorNomeUseCase implements RetornoSecretariaPorNomePort {
 
-    private final SecretariaRepository repository;
+    private final SecretariaRepositoryPort repository;
     private final SecretariaMapper mapper;
 
-    public RetornoSecretariaPorNomeUseCase(SecretariaRepository repository, SecretariaMapper mapper) {
+    public RetornoSecretariaPorNomeUseCase(SecretariaRepositoryPort repository, SecretariaMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }

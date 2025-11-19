@@ -2,11 +2,9 @@ package br.edu.EtecZonaLeste.Conecta.Application.Mappers;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTOCadastroResponsavel;
-import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTORetornoResponsavel;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepositoryPort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Atividade;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 
@@ -15,11 +13,11 @@ import java.util.List;
 
 public class ResponsavelMapper {
 
-    private final AlunoRepository alunoRepository;
-    private final CepService service;
+    private final AlunoRepositoryPort alunoRepositoryPort;
+    private final CepServicePort service;
 
-    public ResponsavelMapper(AlunoRepository alunoRepository, CepService service) {
-        this.alunoRepository = alunoRepository;
+    public ResponsavelMapper(AlunoRepositoryPort alunoRepositoryPort, CepServicePort service) {
+        this.alunoRepositoryPort = alunoRepositoryPort;
         this.service = service;
     }
 
@@ -41,7 +39,7 @@ public class ResponsavelMapper {
         List<TextoValido> nomesFilhos = new ArrayList<>();
 
         for (var rm : responsavel.getRmsFilhos()) {
-            var alunoRetornado = alunoRepository.RetornoAlunoPorRm(rm).get();
+            var alunoRetornado = alunoRepositoryPort.RetornoAlunoPorRm(rm).get();
             nomesFilhos.add(alunoRetornado.getNome());
         }
 

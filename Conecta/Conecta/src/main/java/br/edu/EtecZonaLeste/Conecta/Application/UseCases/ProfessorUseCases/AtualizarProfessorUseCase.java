@@ -2,17 +2,17 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ProfessorUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTOAtualizacaoProfessor;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ProfessorPorts.AtualizarProfessorPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class AtualizarProfessorUseCase implements AtualizarProfessorPort {
 
-    private final ProfessorRepository repository;
-    private final CepService service;
+    private final ProfessorRepositoryPort repository;
+    private final CepServicePort service;
 
-    public AtualizarProfessorUseCase(ProfessorRepository repository, CepService service) {
+    public AtualizarProfessorUseCase(ProfessorRepositoryPort repository, CepServicePort service) {
         this.repository = repository;
         this.service = service;
     }

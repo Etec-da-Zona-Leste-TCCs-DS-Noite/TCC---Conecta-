@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ResponsavelUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.RedefineSenhaResponsavelPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Senha;
 
 public class RedefineSenhaResponsavelUseCase implements RedefineSenhaResponsavelPort {
 
-    private final ResponsavelRepository repository;
+    private final ResponsavelRepositoryPort repository;
 
-    public RedefineSenhaResponsavelUseCase(ResponsavelRepository repository) {
+    public RedefineSenhaResponsavelUseCase(ResponsavelRepositoryPort repository) {
         this.repository = repository;
     }
 

@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ResponsavelUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.CanonizarResponsavelPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Responsavel.Responsavel;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.FalhaValidacaoException;
 
 public class CanonizarResponsavelUseCase implements CanonizarResponsavelPort {
 
-    private final ResponsavelRepository repository;
+    private final ResponsavelRepositoryPort repository;
 
-    public CanonizarResponsavelUseCase(ResponsavelRepository repository) {
+    public CanonizarResponsavelUseCase(ResponsavelRepositoryPort repository) {
         this.repository = repository;
     }
 

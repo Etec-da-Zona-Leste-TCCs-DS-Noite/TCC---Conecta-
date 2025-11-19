@@ -8,7 +8,7 @@ import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 import java.util.List;
 import java.util.Optional;
 
-public interface AlunoRepository {
+public interface AlunoRepositoryPort {
 
     void SalvarAluno(Aluno aluno);
     Optional<Aluno> RetornoAlunoPorRm(Rm rm);

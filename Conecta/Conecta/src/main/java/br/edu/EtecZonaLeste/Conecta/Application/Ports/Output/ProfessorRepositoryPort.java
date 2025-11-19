@@ -7,7 +7,7 @@ import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.TextoValido;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProfessorRepository {
+public interface ProfessorRepositoryPort {
 
     void SalvarProfessor(Professor professor);
     Optional<Professor> RetornoProfessorPorCpf(Cpf cpf);

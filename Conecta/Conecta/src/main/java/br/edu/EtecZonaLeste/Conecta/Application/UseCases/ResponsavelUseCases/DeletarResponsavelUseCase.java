@@ -1,15 +1,15 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ResponsavelUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.DeletarResponsavelPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class DeletarResponsavelUseCase implements DeletarResponsavelPort {
 
-    private final ResponsavelRepository repository;
+    private final ResponsavelRepositoryPort repository;
 
-    public DeletarResponsavelUseCase(ResponsavelRepository repository) {
+    public DeletarResponsavelUseCase(ResponsavelRepositoryPort repository) {
         this.repository = repository;
     }
 

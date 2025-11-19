@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ProfessorUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ProfessorPorts.CanonizarProfessorPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.FalhaValidacaoException;
 
 public class CanonizarProfessorUseCase implements CanonizarProfessorPort {
 
-    private final ProfessorRepository repository;
+    private final ProfessorRepositoryPort repository;
 
-    public CanonizarProfessorUseCase(ProfessorRepository repository) {
+    public CanonizarProfessorUseCase(ProfessorRepositoryPort repository) {
         this.repository = repository;
     }
 

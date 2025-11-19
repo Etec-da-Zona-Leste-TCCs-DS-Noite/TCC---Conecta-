@@ -2,19 +2,18 @@ package br.edu.EtecZonaLeste.Conecta.Application.Mappers;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOAluno.DTOCadastroAluno;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOAluno.DTORetornoAluno;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Aluno.Aluno;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Atividade;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AlunoMapper {
 
-    private final CepService service;
+    private final CepServicePort service;
 
-    public AlunoMapper(CepService service) {
+    public AlunoMapper(CepServicePort service) {
         this.service = service;
     }
 

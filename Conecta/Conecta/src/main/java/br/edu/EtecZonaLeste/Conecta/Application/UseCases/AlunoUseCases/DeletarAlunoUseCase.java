@@ -1,13 +1,13 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.AlunoUseCases;
 
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
 
 public class DeletarAlunoUseCase {
 
-    private final AlunoRepository repository;
+    private final AlunoRepositoryPort repository;
 
-    public DeletarAlunoUseCase(AlunoRepository repository) {
+    public DeletarAlunoUseCase(AlunoRepositoryPort repository) {
         this.repository = repository;
     }
 

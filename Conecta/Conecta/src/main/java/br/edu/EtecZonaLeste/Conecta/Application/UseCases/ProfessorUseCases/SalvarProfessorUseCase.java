@@ -3,17 +3,17 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ProfessorUseCases;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTOCadastroProfessor;
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ProfessorMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ProfessorPorts.SalvarProfessorPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Services.EnvioValidacaoEmailService;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 
 public class SalvarProfessorUseCase implements SalvarProfessorPort {
 
-    private final ProfessorRepository repository;
+    private final ProfessorRepositoryPort repository;
     private final ProfessorMapper mapper;
     private final EnvioValidacaoEmailService service;
 
-    public SalvarProfessorUseCase(ProfessorRepository repository, ProfessorMapper mapper, EnvioValidacaoEmailService service) {
+    public SalvarProfessorUseCase(ProfessorRepositoryPort repository, ProfessorMapper mapper, EnvioValidacaoEmailService service) {
         this.repository = repository;
         this.mapper = mapper;
         this.service = service;

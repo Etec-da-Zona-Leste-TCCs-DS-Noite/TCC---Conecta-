@@ -1,11 +1,9 @@
 package br.edu.EtecZonaLeste.Conecta.Application.Mappers;
 
-import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOProfessor.DTORetornoProfessor;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTOCadastroSecretaria;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOSecretaria.DTORetornoSecretaria;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.BaseUsuarioGeral.Atividade;
-import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Professor.Professor;
 import br.edu.EtecZonaLeste.Conecta.Domain.Entities.User.Secretaria.Secretaria;
 
 import java.util.ArrayList;
@@ -13,9 +11,9 @@ import java.util.List;
 
 public class SecretariaMapper {
 
-    private final CepService service;
+    private final CepServicePort service;
 
-    public SecretariaMapper(CepService service) {
+    public SecretariaMapper(CepServicePort service) {
         this.service = service;
     }
 

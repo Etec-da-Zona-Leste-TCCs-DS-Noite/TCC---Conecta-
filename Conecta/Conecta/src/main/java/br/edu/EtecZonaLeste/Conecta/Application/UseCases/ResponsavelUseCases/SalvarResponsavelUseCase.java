@@ -3,8 +3,8 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ResponsavelUseCases;
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTOCadastroResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.Mappers.ResponsavelMapper;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.SalvarResponsavelPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepository;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.AlunoRepositoryPort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ResponsavelRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Services.EnvioValidacaoEmailService;
 import br.edu.EtecZonaLeste.Conecta.Domain.Exceptions.Exceptions.DadoInvalidoException;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Rm;
@@ -14,21 +14,21 @@ import java.util.LinkedHashSet;
 
 public class SalvarResponsavelUseCase implements SalvarResponsavelPort {
 
-    private final ResponsavelRepository repository;
-    private final AlunoRepository alunoRepository;
+    private final ResponsavelRepositoryPort repository;
+    private final AlunoRepositoryPort alunoRepositoryPort;
     private final EnvioValidacaoEmailService service;
     private final ResponsavelMapper mapper;
 
-    public SalvarResponsavelUseCase(ResponsavelRepository repository, AlunoRepository alunoRepository, EnvioValidacaoEmailService service, ResponsavelMapper mapper) {
+    public SalvarResponsavelUseCase(ResponsavelRepositoryPort repository, AlunoRepositoryPort alunoRepositoryPort, EnvioValidacaoEmailService service, ResponsavelMapper mapper) {
         this.repository = repository;
-        this.alunoRepository = alunoRepository;
+        this.alunoRepositoryPort = alunoRepositoryPort;
         this.service = service;
         this.mapper = mapper;
     }
 
     private void ValidaVinculacaoAluno(LinkedHashSet<Rm> rmsFilhos) {
         for (Rm rm : rmsFilhos) {
-            var retornoAluno = alunoRepository.RetornoAlunoPorRm(rm)
+            var retornoAluno = alunoRepositoryPort.RetornoAlunoPorRm(rm)
                     .orElse(null);
             if (retornoAluno == null) throw new DadoInvalidoException("Aluno com RM " + rm + " não encontrado.");
             if (retornoAluno.getDataNasc().dataNascimento().isBefore(LocalDate.now().minusYears(18))) {

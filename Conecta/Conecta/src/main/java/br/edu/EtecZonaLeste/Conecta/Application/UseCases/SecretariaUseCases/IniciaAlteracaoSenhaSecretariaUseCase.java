@@ -1,16 +1,16 @@
 package br.edu.EtecZonaLeste.Conecta.Application.UseCases.SecretariaUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.SecretariaPorts.IniciaAlteracaoSenhaSecretariaPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.SecretariaRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Application.Services.EnviarEmailAlteracaoSenhaService;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class IniciaAlteracaoSenhaSecretariaUseCase implements IniciaAlteracaoSenhaSecretariaPort {
 
-    private final SecretariaRepository repository;
+    private final SecretariaRepositoryPort repository;
     private final EnviarEmailAlteracaoSenhaService service;
 
-    public IniciaAlteracaoSenhaSecretariaUseCase(SecretariaRepository repository, EnviarEmailAlteracaoSenhaService service) {
+    public IniciaAlteracaoSenhaSecretariaUseCase(SecretariaRepositoryPort repository, EnviarEmailAlteracaoSenhaService service) {
         this.repository = repository;
         this.service = service;
     }

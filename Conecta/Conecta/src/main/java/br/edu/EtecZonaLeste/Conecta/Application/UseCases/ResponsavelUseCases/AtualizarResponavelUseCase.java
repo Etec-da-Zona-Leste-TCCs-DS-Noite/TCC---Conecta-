@@ -2,16 +2,16 @@ package br.edu.EtecZonaLeste.Conecta.Application.UseCases.ResponsavelUseCases;
 
 import br.edu.EtecZonaLeste.Conecta.Application.DTO.DTOResponsavel.DTOAtualizacaoResponsavel;
 import br.edu.EtecZonaLeste.Conecta.Application.Ports.Input.ResponsavelPorts.AtualizarResponsavelPort;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepService;
-import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepository;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.CepServicePort;
+import br.edu.EtecZonaLeste.Conecta.Application.Ports.Output.ProfessorRepositoryPort;
 import br.edu.EtecZonaLeste.Conecta.Domain.ValueObjects.Cpf;
 
 public class AtualizarResponavelUseCase implements AtualizarResponsavelPort {
 
-    private final ProfessorRepository repository;
-    private final CepService service;
+    private final ProfessorRepositoryPort repository;
+    private final CepServicePort service;
 
-    public AtualizarResponavelUseCase(ProfessorRepository repository, CepService service) {
+    public AtualizarResponavelUseCase(ProfessorRepositoryPort repository, CepServicePort service) {
         this.repository = repository;
         this.service = service;
     }
