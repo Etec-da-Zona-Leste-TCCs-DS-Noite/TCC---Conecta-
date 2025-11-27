@@ -1,11 +1,16 @@
 body{
     font-family: 'poppins', sans-serif;
-    background-color:rgb(253, 253, 255);
+    /* background-color:rgb(253, 253, 255); */
     transition: 0.5s;
 }
 
 body.dark-mode{
     background-color: rgba(3, 3, 3, 0.918);
+}
+
+#title{
+    display: flex;
+    justify-content: center;
 }
 
 .login-box{
@@ -69,6 +74,10 @@ input{
     padding: 10px;
     font-size: 14px;
     transition: 0.5s;
+}
+
+h1.dark-mode{
+    color: #ffffff;
 }
 
 input.dark-mode{
