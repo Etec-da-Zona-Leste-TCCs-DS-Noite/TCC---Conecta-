@@ -1,0 +1,59 @@
+[33mcommit 27660e061de6db3bbdf8ac9f1d07e422e78a8950[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/monolito[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/frontend-niivo[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mfrontend-niivo[m[33m)[m
+Author: Aluno CA <henriquearthur.dev@gmail.com>
+Date:   Wed Nov 19 16:00:07 2025 -0300
+
+    subindo entidade de avisos e seus casos de uso
+
+[33mcommit 2d183e511d413bad25bd6c502a64352a3065a91a[m
+Author: arthurhenrique-Dev <henriquearthur.dev@gmail.com>
+Date:   Sun Nov 16 17:02:51 2025 -0300
+
+    primeira versão da camada de dominio e de aplicação finalizada
+
+[33mcommit 025c3ab29b34aaf8b9c201edbe27801330c2233b[m
+Author: arthurhenrique-Dev <henriquearthur.dev@gmail.com>
+Date:   Sun Nov 16 02:09:50 2025 -0300
+
+    progresso dia 16
+
+[33mcommit 7436f13da9749db9d23cabedb8a6de73fe28161a[m
+Author: unknown <henriquearthur.dev@gmail.com>
+Date:   Thu Nov 13 22:43:53 2025 -0300
+
+    progresso 13/11
+
+[33mcommit 8b19dcf8199f1522be71a33df3be3089211ab027[m
+Author: unknown <henriquearthur.dev@gmail.com>
+Date:   Thu Nov 13 20:50:43 2025 -0300
+
+    Primeira versão dos usuários adicionados
+
+[33mcommit 5b024bc92f0fa6ec988392a7df0f5fd697151610[m
+Author: unknown <henriquearthur.dev@gmail.com>
+Date:   Thu Nov 13 20:39:23 2025 -0300
+
+    primeira versão base de usuário no domain
+
+[33mcommit 2e216a84ceed841979848fb1cbca2d6cdfe0949e[m
+Author: unknown <henriquearthur.dev@gmail.com>
+Date:   Thu Nov 13 20:07:28 2025 -0300
+
+    primeira versão da base de usuários no domain
+
+[33mcommit 5875143f3fc0086d93ef9b42b47e7af77c4d308f[m
+Author: unknown <henriquearthur.dev@gmail.com>
+Date:   Thu Nov 13 19:44:19 2025 -0300
+
+    upando o initializr pra reiniciar o computador sem perder
+
+[33mcommit bf0cd5a6bd4f8c31e6abb242c8ec92a076fe3e14[m
+Author: felipe-dev-oficial <duartefelipe020@gmail.com>
+Date:   Wed Oct 8 01:34:15 2025 -0300
+
+    upload da documentação do TCC
+
+[33mcommit f216ea7e45e2bf1a56f42523ae1000ce44c1d890[m
+Author: Felipe Duarte <104106971+Felipe-Dev-Oficial@users.noreply.github.com>
+Date:   Wed Oct 8 01:28:59 2025 -0300
+
+    Initial commit
